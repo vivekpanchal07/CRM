@@ -39,6 +39,15 @@ mat-card{
   margin-bottom: 20px;
 }
 
+.error {
+  border-color: red;
+}
+
+.error-message {
+  color: red;
+  margin-top: 5px;
+}
+
 a:hover{
   cursor: pointer;
 }

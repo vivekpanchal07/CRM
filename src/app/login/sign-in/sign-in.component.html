@@ -31,7 +31,7 @@
           </div>
           <button type="submit" class="btn btn-primary col-12"
             style="background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);"
-            (click)="onSubmit()"> Login</button>
+            [disabled]="!signInForm.valid" (click)="onSubmit()"> Login</button>
         </form>
       </mat-card-content>
       <mat-card-footer align="end" class="pt-2">
@@ -71,18 +71,21 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="password">Confirm Password</label>
-            <div class="input-group">
-              <input type="{{ showPassword ? 'text' : 'password' }}" class="form-control" id="password"
+            <label for="confirmPassword">Confirm Password</label>
+            <div class="input-group" [ngClass]="{ 'error': signUpForm.hasError('mismatch') }">
+              <input type="{{ showPassword ? 'text' : 'password' }}" class="form-control" id="confirmPassword"
                 placeholder="Enter your password" formControlName="confirmPassword" />
               <span class="input-group-text" (click)="togglePasswordVisibility()">
                 <mat-icon>{{ showPassword ? 'visibility' : 'visibility_off' }}</mat-icon>
               </span>
             </div>
+            <div *ngIf="signUpForm.hasError('mismatch')" class="error-message">
+              Passwords do not match!
+            </div>
           </div>
           <button type="submit" class="btn btn-primary col-12"
             style="background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); "
-            (click)="onSubmit()"> Register</button>
+            [disabled]="!signUpForm.valid" (click)="onSubmit()"> Register</button>
         </form>
       </mat-card-content>
       <mat-card-footer align="end" class="pt-2">
