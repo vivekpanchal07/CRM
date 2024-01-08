@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { ToastrModule } from 'ngx-toastr';
     MatCardModule,
     CommonModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
